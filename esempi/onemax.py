@@ -16,7 +16,6 @@
 ##############################################################################
 
 import sys
-import math
 import logging
 import eulogy
 import argparse
