@@ -33,10 +33,9 @@ def main():
     genome = sgx.AlleleDistribution(loci)
     logging.debug("New Allele Distribution: %s", genome)
 
-    opt = sgx.VanillaOptimizer(genome, fitness_function,
-                               max_fitness=sgx.FitnessLexicographic(1.),
-                               archive_max_size=5, fitness_log=LOG_NAME,
-                               mutation_probability=args.mut_prob)
+    opt = sgx.VanillaOptimizer(genome, fitness_function, fitness_log=LOG_NAME,
+                               max_fitness=sgx.FitnessLexicographic(1.), max_generations=args.max_gen,
+                               archive_max_size=5, mutation_probability=args.mut_prob)
     # per aggiungere condizioni di terminazione
     # opt._stopping_conditions.append(lambda: _steady_state_function(opt, args.steady_state))
 
@@ -83,6 +82,8 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--debug', action='store_true', help='Debug option')
     parser.add_argument('-ip', '--init-prob', dest='init_prob', default=None, type=float,
                         help='Initial probability of having 0 values in the chromosome - rate [0.0-1.0]')
+    parser.add_argument('-mg', '--max-gen', dest='max_gen', default=30000, type=int,
+                        help='Maximum number of generation created by the algorithm')
     parser.add_argument('-mp', '--mut-prob', dest='mut_prob', default=None, type=float,
                         help='Mutation probability rate [0.0-1.0]')
     parser.add_argument('-ss', '--steady-state', dest='steady_state', default=4000, type=int,
