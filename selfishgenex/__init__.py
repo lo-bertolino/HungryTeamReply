@@ -41,4 +41,3 @@ if sys.flags.optimize == 0:
 
 if sys.version_info < (3, 4):
     warnings.warn("The code has only been tested with Python v3.4+", Warning)
-
