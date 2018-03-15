@@ -13,13 +13,20 @@ import sys
 import logging
 import argparse
 import selfishgenex as sgx
+from data_structure import *
 
 assert sys.version_info >= (3, 4)
 
 LOG_NAME = "1max_{}.dat".format(0)
 
+providers = []
+services = []
+countries = []
+
 
 def main():
+    read_file()
+
     loci = list()
     genome_len = 1000  # h*w
     for _ in range(genome_len):
@@ -46,6 +53,31 @@ def main():
     else:
         result = opt.archive.pop()
         logging.info("Solution: %s", result)
+
+
+def read_file():
+    path = 'first_adventure.in'
+    i_file = open(path, 'r')
+    num_providers, num_services, num_countries, num_projects = list(map(int, i_file.readline().split(' ')))
+    services.append(i_file.readline().split(' '))
+    countries.append(i_file.readline().split(' '))
+    for _ in range(num_providers):
+        provider_name = i_file.read()
+        num_regions = int(i_file.read())
+        provider_temp = Provider(provider_name)
+        for _ in range(num_regions):
+            region_name = i_file.read()
+            package_number = int(i_file.read())
+            cost = float(i_file.read())
+            service = list(map(int, i_file.readline().split(' ')))
+            latency = list(map(int, i_file.readline().split(' ')))
+            region_temp = Region(region_name, package_number, cost, service, latency)
+            provider_temp.add_region(region_temp)
+
+        providers.append(provider_temp)
+
+    for _ in range(num_projects):
+        pass
 
 
 def fitness_function(genome):

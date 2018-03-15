@@ -10,7 +10,7 @@ class Region:
     --------
     """
 
-    def __init__(self, name: str, package_number: int, cost: float, service: dict, latency: dict):
+    def __init__(self, name: str, package_number: int, cost: float, service: list, latency: list):
         self.name = name
         self.package_number = package_number
         self.cost = cost
@@ -27,10 +27,10 @@ class Provider:
 
     def __init__(self, name: str):
         self.name = name
-        self.region = dict()
+        self.region = list()
 
-    def add_region(self, region_name: str, region: Region):
-        self.region[region_name] = region
+    def add_region(self, region: Region):
+        self.region.append(region)
 
 
 class Project:
