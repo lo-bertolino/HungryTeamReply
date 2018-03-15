@@ -5,11 +5,12 @@ class Region:
     --------
     """
 
-    def __init__(self, name: str, package_number: int, cost: float, service: dict):
+    def __init__(self, name: str, package_number: int, cost: float, service: dict, latency: dict):
         self.name = name
         self.package_number = package_number
         self.cost = cost
         self.service = service
+        self.latency = latency
 
 
 class Provider:
