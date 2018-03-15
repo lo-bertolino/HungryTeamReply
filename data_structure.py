@@ -1,7 +1,7 @@
 services = list()
 countries = list()
 providers = list()
-
+projects = list()
 
 class Region:
     """
