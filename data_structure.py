@@ -31,3 +31,10 @@ class Provider:
 
     def add_region(self, region_name: str, region: Region):
         self.region[region_name] = region
+
+
+class Project:
+    def __init__(self, penalty: int, county: str, services_project: list):
+        self.penalty = penalty
+        self.county = county
+        self.services = services_project
