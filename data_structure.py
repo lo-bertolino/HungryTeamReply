@@ -1,5 +1,5 @@
 services = list()
-country = list()
+countries = list()
 providers = list()
 
 
