@@ -1,18 +1,3 @@
-class Provider:
-    """
-    -----------------
-    Provider
-    -----------------
-    """
-
-    def __init__(self, name):
-        self.name = name
-        self.region = dict()
-
-    def add_region(self, region_name, region):
-        self.region[region_name] = region
-
-
 class Region:
     """
     --------
@@ -25,3 +10,18 @@ class Region:
         self.package_number = package_number
         self.cost = cost
         self.service = service
+
+
+class Provider:
+    """
+    -----------------
+    Provider
+    -----------------
+    """
+
+    def __init__(self, name: str):
+        self.name = name
+        self.region = dict()
+
+    def add_region(self, region_name: str, region: Region):
+        self.region[region_name] = region
