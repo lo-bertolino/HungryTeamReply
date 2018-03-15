@@ -1,4 +1,44 @@
-from data_structure import *
+services = list()
+countries = list()
+providers = list()
+projects = list()
+
+
+class Region:
+    """
+    --------
+    Region
+    --------
+    """
+
+    def __init__(self, name: str, package_number: int, cost: float, service: list, latency: list):
+        self.name = name
+        self.package_number = package_number
+        self.cost = cost
+        self.service = service
+        self.latency = latency
+
+
+class Provider:
+    """
+    -----------------
+    Provider
+    -----------------
+    """
+
+    def __init__(self, name: str):
+        self.name = name
+        self.region = list()
+
+    def add_region(self, region: Region):
+        self.region.append(region)
+
+
+class Project:
+    def __init__(self, penalty: int, county: str, services_project: list):
+        self.penalty = penalty
+        self.county = county
+        self.services = services_project
 
 
 def read_file_eur():
@@ -55,7 +95,7 @@ def eur_main():
     num_proj = len(projects)
     for n_p, prov in enumerate(providers):
         for n_r, reg in enumerate(prov.region):
-            #print(prov.name, reg.name)
+            print(prov.name, reg.name)
             while reg.package_number > n:
                 reg.package_number -= n
                 o_file.write(str(n_p) + " " + str(n_r) + " " + str(n))
@@ -68,6 +108,8 @@ def eur_main():
                 # if reg.package_number > 2*n:
                 #    o_file.write(" ")
                 o_file.write('\n')
+    for _ in range(num_proj):
+        o_file.write('\n')
     o_file.close()
     return
 
