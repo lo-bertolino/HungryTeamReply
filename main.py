@@ -77,7 +77,10 @@ def read_file():
         providers.append(provider_temp)
 
     for _ in range(num_projects):
-        pass
+        penalty = int(i_file.read())
+        country = i_file.read()
+        services_project = list(map(int, i_file.readline().split(' ')))
+
 
 
 def fitness_function(genome):
