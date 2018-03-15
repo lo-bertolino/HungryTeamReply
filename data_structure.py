@@ -1,8 +1,3 @@
-services = list()
-countries = list()
-providers = list()
-
-
 class Region:
     """
     --------
