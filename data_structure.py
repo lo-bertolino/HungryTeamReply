@@ -1,4 +1,6 @@
-services = dict()
+services = list()
+country = list()
+providers = dict()
 
 
 class Region:
