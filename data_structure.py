@@ -1,3 +1,6 @@
+services = dict()
+
+
 class Region:
     """
     --------
